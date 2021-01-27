@@ -25,4 +25,35 @@ stages:
           Write-Host $(Build.Repository.LocalPath)
           Write-Host "Build.SourcesDirectory is:"
           Write-Host $(Build.SourcesDirectory)
-      
+          Write-Host "Agent.ReleaseDirectory is:"
+          Write-Host $(Agent.ReleaseDirectory)
+          Write-Host "$ENV:AGENT_RELEASEDIRECTORY is:"
+          Write-Host $ENV:AGENT_RELEASEDIRECTORY
+
+- stage: DBAVerificationScript
+  displayName: 'Script database schema changes'
+  dependsOn: Build
+  jobs:
+  - deployment: DBAVerificationScript
+    pool:
+      vmImage: 'windows-2019'
+    variables:
+    - group: 'Release'
+    environment: 'dbaverificationscript'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: PowerShell@2      
+            displayName: Show Auto Generated SQL Script
+            inputs:
+              targetType: 'inline'
+              script: | 
+                Write-Host "Build.Repository.LocalPath is:"
+                Write-Host $(Build.Repository.LocalPath)
+                Write-Host "Build.SourcesDirectory is:"
+                Write-Host $(Build.SourcesDirectory)
+                Write-Host "Agent.ReleaseDirectory is:"
+                Write-Host $(Agent.ReleaseDirectory)
+                Write-Host "$ENV:AGENT_RELEASEDIRECTORY is:"
+                Write-Host $ENV:AGENT_RELEASEDIRECTORY
