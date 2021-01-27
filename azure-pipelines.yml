@@ -25,7 +25,7 @@ stages:
           Write-Host $(Build.SourcesDirectory)
           Write-Host "Agent.ReleaseDirectory is:"
           Write-Host $(Agent.ReleaseDirectory)
-          Write-Host "$ENV:AGENT_RELEASEDIRECTORY is:"
+          Write-Host "ENV:AGENT_RELEASEDIRECTORY is:"
           Write-Host $ENV:AGENT_RELEASEDIRECTORY
 
 - stage: DBAVerificationScript
@@ -52,5 +52,5 @@ stages:
                 Write-Host $(Build.SourcesDirectory)
                 Write-Host "Agent.ReleaseDirectory is:"
                 Write-Host $(Agent.ReleaseDirectory)
-                Write-Host "$ENV:AGENT_RELEASEDIRECTORY is:"
+                Write-Host "ENV:AGENT_RELEASEDIRECTORY is:"
                 Write-Host $ENV:AGENT_RELEASEDIRECTORY
