@@ -21,5 +21,8 @@ stages:
         script: |
           # Write your PowerShell commands here.
       
-          Write-Host $(Build.Repository.LocalPath)@2
+          Write-Host "Build.Repository.LocalPath is:"
+          Write-Host $(Build.Repository.LocalPath)
+          Write-Host "Build.SourcesDirectory is:"
+          Write-Host $(Build.SourcesDirectory)
       
