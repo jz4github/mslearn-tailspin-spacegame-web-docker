@@ -19,8 +19,6 @@ stages:
       inputs:
         targetType: 'inline'
         script: |
-          # Write your PowerShell commands here.
-      
           Write-Host "Build.Repository.LocalPath is:"
           Write-Host $(Build.Repository.LocalPath)
           Write-Host "Build.SourcesDirectory is:"
@@ -32,7 +30,6 @@ stages:
 
 - stage: DBAVerificationScript
   displayName: 'Script database schema changes'
-  dependsOn: Build
   jobs:
   - deployment: DBAVerificationScript
     pool:
