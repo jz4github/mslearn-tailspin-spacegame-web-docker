@@ -23,8 +23,8 @@ stages:
           Write-Host $(Build.Repository.LocalPath)
           Write-Host "Build.SourcesDirectory is:"
           Write-Host $(Build.SourcesDirectory)
-          Write-Host "Agent.Name	 is:"
-          Write-Host $(Agent.Name)
+          Write-Host "Agent.HomeDirectory	 is:"
+          Write-Host $(Agent.HomeDirectory)
 
 - stage: DBAVerificationScript
   displayName: 'Script database schema changes'
