@@ -48,7 +48,7 @@ stages:
                 Write-Host $(Build.Repository.LocalPath)
                 Write-Host "Build.SourcesDirectory is:"
                 Write-Host $(Build.SourcesDirectory)
-                Write-Host "Agent.ReleaseDirectory is:"
-                Write-Host $(Agent.ReleaseDirectory)
-                Write-Host "ENV:AGENT_RELEASEDIRECTORY is:"
-                Write-Host $ENV:AGENT_RELEASEDIRECTORY
+                Write-Host "Agent.HomeDirectory is:"
+                Write-Host $(Agent.HomeDirectory)
+                Write-Host "ENV:AGENT_HOMEDIRECTORY is:"
+                Write-Host $ENV:AGENT_HOMEDIRECTORY
