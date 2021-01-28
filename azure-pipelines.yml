@@ -21,10 +21,12 @@ stages:
         script: |
           Write-Host "Build.Repository.LocalPath is:"
           Write-Host $(Build.Repository.LocalPath)
-          Write-Host "Build.SourcesDirectory is:"
-          Write-Host $(Build.SourcesDirectory)
+          Write-Host "System.ArtifactsDirectory is:"
+          Write-Host $(System.ArtifactsDirectory)
           Write-Host "Agent.HomeDirectory	 is:"
           Write-Host $(Agent.HomeDirectory)
+          write-host "ENV:SYSTEM_ARTIFACTSDIRECTORY is:"
+          write-host $ENV:SYSTEM_ARTIFACTSDIRECTORY
 
 - stage: DBAVerificationScript
   displayName: 'Script database schema changes'
@@ -46,9 +48,11 @@ stages:
               script: | 
                 Write-Host "Build.Repository.LocalPath is:"
                 Write-Host $(Build.Repository.LocalPath)
-                Write-Host "Build.SourcesDirectory is:"
-                Write-Host $(Build.SourcesDirectory)
+                Write-Host "System.ArtifactsDirectory is:"
+                Write-Host $(System.ArtifactsDirectory)
                 Write-Host "Agent.HomeDirectory is:"
                 Write-Host $(Agent.HomeDirectory)
                 Write-Host "ENV:AGENT_HOMEDIRECTORY is:"
                 Write-Host $ENV:AGENT_HOMEDIRECTORY
+                write-host "ENV:SYSTEM_ARTIFACTSDIRECTORY is:"
+                write-host $ENV:SYSTEM_ARTIFACTSDIRECTORY
